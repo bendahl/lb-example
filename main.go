@@ -1,18 +1,13 @@
 package main
 
 import (
-	"fmt"
+	uuid "github.com/google/uuid"
 	"log"
 	"net/http"
-	"os"
 )
 
 func main() {
-	http.HandleFunc("/", handler)
-	log.Fatal(http.ListenAndServe(":8080",nil))
-}
-
-func handler(w http.ResponseWriter, r *http.Request) {
-	hostname, _ := os.Hostname()
-	_, _ = fmt.Fprintf(w, "%s", hostname)
+	id := uuid.New()
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) { _, _ = w.Write([]byte(id.String())) })
+	log.Fatal(http.ListenAndServe(":8080", nil))
 }
