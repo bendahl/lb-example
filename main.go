@@ -7,11 +7,16 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 )
 
 func main() {
-	port := flag.Int("p", 8080, "port to listen on")
+	envPort, err := strconv.ParseInt(os.Getenv("LISTEN_PORT"), 10, 16)
+	if err != nil {
+		envPort = 8080
+	}
+	port := flag.Int("p", int(envPort), "port to listen on")
 	flag.Parse()
 
 	id := uuid.New()
