@@ -5,7 +5,7 @@ services:
   service-2:
     build: .
   load-balancer:
-    image: nginx:1.15.10
+    image: nginx:1.23-alpine
     depends_on:
       - service-1
       - service-2
