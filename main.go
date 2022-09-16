@@ -3,12 +3,13 @@ package main
 import (
 	"flag"
 	"fmt"
-	uuid "github.com/google/uuid"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/google/uuid"
 )
 
 func main() {
