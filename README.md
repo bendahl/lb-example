@@ -16,7 +16,8 @@ In order to build and run the example, you will need the following:
 
 Running the Example:
 --------------------
-First, execute the `build.sh` script. This will build the webservice and package it up nicely in a Docker image. Next,
+First, build the image using Docker (e.g. `docker build -t lb-example:master .`). 
+This will build the webservice and package it up nicely in a Docker image. Next,
 run the command `docker-compose up -d`. This will have Docker Compose create the local cluster for you. 
 Now checkout your browser at localhost:8080 and hit refresh a couple of times. You should see two different
 hex strings in alternating order. These strings are actually hostnames. 
